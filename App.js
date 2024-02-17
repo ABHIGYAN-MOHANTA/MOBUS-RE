@@ -65,7 +65,7 @@ export default function App() {
       <ScrollView style={styles.scrollContainer}>
         {error ? (
           <View>
-            <Text style={styles.header}>MoBus Clone</Text>
+            <Text style={styles.header}>MoBus RE</Text>
             <Text style={{ textAlign: "center" }}>RE by Abhigyan Mohanta</Text>
             <Text>Error: {error}</Text>
           </View>
