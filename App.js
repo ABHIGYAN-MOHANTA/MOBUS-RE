@@ -1,6 +1,13 @@
 import React, { useState, useEffect } from "react";
 import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, SafeAreaView, ScrollView } from "react-native";
+import {
+  StyleSheet,
+  Text,
+  View,
+  SafeAreaView,
+  ScrollView,
+  Dimensions,
+} from "react-native";
 import * as Location from "expo-location";
 import { xml2js } from "xml-js";
 import MapView, { Marker } from "react-native-maps";
@@ -60,18 +67,22 @@ export default function App() {
     fetchData();
   }, []);
 
+  // Get the height of the screen
+  const screenHeight = Dimensions.get("window").height;
+  const screenWidth = Dimensions.get("window").width;
+
   return (
     <SafeAreaView style={styles.container}>
       <ScrollView style={styles.scrollContainer}>
         {error ? (
-          <View>
+          <View style={{ height: screenHeight, width: screenWidth }}>
             <Text style={styles.header}>MoBus RE</Text>
             <Text style={{ textAlign: "center" }}>RE by Abhigyan Mohanta</Text>
             <Text>Error: {error}</Text>
           </View>
         ) : (
-          <View>
-            <Text style={styles.header}>MoBus Clone</Text>
+          <View style={{ height: screenHeight, width: screenWidth }}>
+            <Text style={styles.header}>MoBus RE</Text>
             <Text style={{ textAlign: "center" }}>RE by Abhigyan Mohanta</Text>
 
             <FlashList
@@ -116,7 +127,7 @@ export default function App() {
                   <Text></Text>
                 </View>
               )}
-              estimatedItemSize={200}
+              estimatedItemSize={300}
             />
           </View>
         )}
